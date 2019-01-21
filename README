@@ -1,0 +1,9 @@
+Instructions to run the project via command line
+- Execute 'git clone https://github.com/skalsi316/savechildren' in command line. 
+  This will clone the project to the folder you are in. 
+- Then go to the savechildren folder stored - 'cd savechildren'
+- Run 'mvn clean install'. You should see the junit test run 
+- Execute 'java -jar target/rest-api-0.1.0.jar' and you should see the test. 
+
+If i had more time i would have created the db connection file using MySQL with a table so you could see the entries 
+being imported to the database.  
