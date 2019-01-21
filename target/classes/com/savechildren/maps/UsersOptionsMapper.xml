@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="code.beans.UsersOptionsMapper">
+
+  <resultMap id="BaseResultMap" type="com.savechildren.code.beans.UsersOptions">
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />            
+    <result column="userpswd" property="userpswd" jdbcType="VARCHAR" />        
+  </resultMap>
+
+  <sql id="Base_Column_List">userid</sql>
+  
+    <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from users    
+  </select>
+
+  <select id="selectByUserID" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from users    
+    where userid = #{userid}
+  </select>
+  
+   <insert id="insertUsersOptionsData" parameterType="com.savechildren.code.beans.UsersOptions">
+    insert into users (<include refid="Base_Column_List"/>) VALUES (#{userid},#{email},#{userpswd})
+  </insert>
+
+</mapper>
